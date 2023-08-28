@@ -1,8 +1,8 @@
 import { BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import MyTasks from '../components/tasks/MyTasks';
 import TaskCard from '../components/tasks/TaskCard';
-import Modal from '../components/ui/Modal';
 import { useState } from 'react';
+import AddTaskModal from '../components/tasks/AddTaskModal';
 
 const Tasks = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +22,9 @@ const Tasks = () => {
               <BellIcon className="h-6 w-6" />
             </button>
             <button
-            onClick={()=> setIsOpen(!isOpen)}
-            className="btn btn-primary">Add Task</button>
-            <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
+              onClick={() => setIsOpen(!isOpen)}
+              className="btn btn-primary">Add Task</button>
+            <AddTaskModal isOpen={isOpen} setIsOpen={setIsOpen}/>
 
             <div className="h-10 w-10 rounded-xl overflow-hidden">
               <img
