@@ -17,12 +17,16 @@ const tasksSlice = createSlice({
                 state.tasks.push({ id: lastElement.id + 1, status: 'pending', payload });
             }
         },
-        removeTask: (state, payload)=>{
-            state.tasks.filter((item)=>item !== payload);
+        removeTask: (state, {payload}) => {
+            state.tasks.filter((item) => item !== payload);
+        },
+        updateStatus: (state, {payload}) => {
+           const target = state.tasks.find(item => item.id === payload.id);
+           target.status = payload.status;
         }
     },
 });
 
-export const { addTask } = tasksSlice.actions;
+export const { addTask, updateStatus } = tasksSlice.actions;
 
 export default tasksSlice.reducer;
